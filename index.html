@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UPTAC College Predictor 2023</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            user-select: none;
+            /* Simplified */
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            width: 100%;
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        body {
+            min-height: 75rem;
+            padding-top: 4.5rem;
+            /* Ensure the body covers the full viewport height */
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        footer {
+            flex-shrink: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="arrow-right-short" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+        </symbol>
+    </svg>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">UPTAC College Predictor 2023</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="https://github.com/AmanDevelops">About US</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="container my-5">
+            <div class="p-5 text-center bg-body-tertiary rounded-3">
+                <h1 class="text-body-emphasis">UPTAC BTech JEE College Predictor</h1>
+                <form action="results.html" method="POST" id="myForm">
+                    <!-- category -->
+                    <select class="form-select" aria-label="Default select example" name="category">
+                        <option selected>Select Category</option>
+                        <option value="OPEN">OPEN</option>
+                        <option value="OPEN(TF)">OPEN(TF)</option>
+                        <option value="OPEN(GIRL)">OPEN(GIRL)</option>
+                        <option value="SC">SC</option>
+                        <option value="BC(AF)">BC(AF)</option>
+                        <option value="BC">BC</option>
+                        <option value="EWS(OPEN)">EWS(OPEN)</option>
+                        <option value="OPEN(AF)">OPEN(AF)</option>
+                        <option value="EWS(GL)">EWS(GL)</option>
+                        <option value="BC(Girl)">BC(Girl)</option>
+                        <option value="SC(AF)">SC(AF)</option>
+                        <option value="OPEN(PH)">OPEN(PH)</option>
+                        <option value="SC(Girl)">SC(Girl)</option>
+                        <option value="ST">ST</option>
+                        <option value="ST(Girl)">ST(Girl)</option>
+                        <option value="SC(PH)">SC(PH)</option>
+                        <option value="EWS(AF)">EWS(AF)</option>
+                        <option value="BC(PH)">BC(PH)</option>
+                        <option value="EWS(PH)">EWS(PH)</option>
+                        <option value="OPEN(FF)">OPEN(FF)</option>
+                        <option value="BC(FF)">BC(FF)</option>
+                    </select><br>
+                    <select class="form-select" aria-label="Default select example" name="quota">
+                        <option selected>Select Quota</option>
+                        <option value="Home State">Home State</option>
+                        <option value="All India">All India</option>
+                    </select><br>
+
+                    <!-- Academic Program Name -->
+                    <select class="form-select" aria-label="Default select example" name="course">
+                        <option value="allprograms" selected>All Programs</option>
+                        <option
+                            value="Computer Science and Engineering (Artificial Intelligence & Machine Learning) (Shift I)">
+                            Computer Science and Engineering (Artificial Intelligence & Machine Learning) (Shift I)
+                        </option>
+                        <option value="Computer Science and Engineering (Shift I)(FW)">Computer Science and Engineering
+                            (Shift I)(FW)</option>
+                        <option value="Computer Science and Engineering (Shift I)">Computer Science and Engineering
+                            (Shift I)</option>
+                        <option value="Computer Engineering (Shift I)">Computer Engineering (Shift I)</option>
+                        <option value="Electronics and Communication Engineering (Shift I)">Electronics and
+                            Communication Engineering (Shift I)</option>
+                        <option value="Information Technology (Shift I)">Information Technology (Shift I)</option>
+                        <option value="Electrical & Electronics Engineering (Shift I)">Electrical & Electronics
+                            Engineering (Shift I)</option>
+                        <option
+                            value="Computer Science and Engineering (Artificial Intelligence & Machine Learning) (Shift I)(FW)">
+                            Computer Science and Engineering (Artificial Intelligence & Machine Learning) (Shift I)(FW)
+                        </option>
+                        <option value="Mechanical Engineering (Shift I)">Mechanical Engineering (Shift I)</option>
+                        <option value="Computer Science (Shift I)">Computer Science (Shift I)</option>
+                        <option value="Electrical and Computer Engg (Shift I) (FW)">Electrical and Computer Engg (Shift
+                            I) (FW)</option>
+                        <option value="Civil Engineering (Shift I)">Civil Engineering (Shift I)</option>
+                        <option value="Computer Science (Shift I)(FW)">Computer Science (Shift I)(FW)</option>
+                        <option value="Electronics and Communication Engineering (Shift I)(FW)">Electronics and
+                            Communication Engineering (Shift I)(FW)</option>
+                        <option value="Computer Science and Engineering (Data Science) (Shift I)(FW)">Computer Science
+                            and Engineering (Data Science) (Shift I)(FW)</option>
+                        <option value="Computer Science and Engineering (Artificial Intelligence) (Shift I)(FW)">
+                            Computer Science and Engineering (Artificial Intelligence) (Shift I)(FW)</option>
+                        <option value="Artificial Intelligence (AI) And Data Science (Shift I)">Artificial Intelligence
+                            (AI) And Data Science (Shift I)</option>
+                        <option value="Computer Science and Engineering (Data Science) (Shift I)">Computer Science and
+                            Engineering (Data Science) (Shift I)</option>
+                        <option value="Computer Science and Engineering (Artificial Intelligence) (Shift I)">Computer
+                            Science and Engineering (Artificial Intelligence) (Shift I)</option>
+                        <option value="Artificial Intelligence And Machine Learning (Shift I)">Artificial Intelligence
+                            And Machine Learning (Shift I)</option>
+                        <option value="Computer Science And Design (Shift I)">Computer Science And Design (Shift I)
+                        </option>
+                        <option value="Civil Engineering (Shift I)(FW)">Civil Engineering (Shift I)(FW)</option>
+                        <option value="Electrical Engineering (Shift I)">Electrical Engineering (Shift I)</option>
+                        <option value="Electronics Engineering (Shift I)">Electronics Engineering (Shift I)</option>
+                        <option value="Electrical Engineering (Shift I)(FW)">Electrical Engineering (Shift I)(FW)
+                        </option>
+                        <option value="Electrical & Electronics Engineering (Shift I)(FW)">Electrical & Electronics
+                            Engineering (Shift I)(FW)</option>
+                        <option value="Artificial Intelligence (AI) And Data Science (Shift I)(FW)">Artificial
+                            Intelligence (AI) And Data Science (Shift I)(FW)</option>
+                        <option value="Computer Science and Engineering (Internet of Things) (Shift I)">Computer Science
+                            and Engineering (Internet of Things) (Shift I)</option>
+                        <option value="Information Technology (Shift I)(FW)">Information Technology (Shift I)(FW)
+                        </option>
+                        <option value="Computer Science and Engineering (Internet of Things) (Shift I)(FW)">Computer
+                            Science and Engineering (Internet of Things) (Shift I)(FW)</option>
+                        <option value="Computer Science and Business System (Shift I)">Computer Science and Business
+                            System (Shift I)</option>
+                        <option value="Computer Science (Hindi) (Shift I)">Computer Science (Hindi) (Shift I)</option>
+                        <option value="Chemical Engineering (Shift I)">Chemical Engineering (Shift I)</option>
+                        <option value="Chemical Engineering (Shift I)(FW)">Chemical Engineering (Shift I)(FW)</option>
+                        <option value="Electronics and Instrumentation Engineering (Shift I)">Electronics and
+                            Instrumentation Engineering (Shift I)</option>
+                        <option value="Carpet & Textile Technology (Shift I)">Carpet & Textile Technology (Shift I)
+                        </option>
+                        <option value="Electronics Engineering (Shift I)(FW)">Electronics Engineering (Shift I)(FW)
+                        </option>
+                        <option value="Electrical & Computer Engg. (Shift I)">Electrical & Computer Engg. (Shift I)
+                        </option>
+                        <option value="Electronics Engineering (VLSI Design and Technology)">Electronics Engineering
+                            (VLSI Design and Technology)</option>
+                        <option value="Computer Science Information Technology (Shift I)">Computer Science Information
+                            Technology (Shift I)</option>
+                        <option value="Instrumentation and Control Engineering (Shift I)">Instrumentation and Control
+                            Engineering (Shift I)</option>
+                        <option value="Industrial Production Engineering (Shift I)">Industrial Production Engineering
+                            (Shift I)</option>
+                        <option value="Instrumentation and Control Engineering (Shift I)(FW)">Instrumentation and
+                            Control Engineering (Shift I)(FW)</option>
+                        <option value="Computer Science and Engineering (Self Finance) (Shift I)">Computer Science and
+                            Engineering (Self Finance) (Shift I)</option>
+                        <option value="Artificial Intelligence And Machine Learning (Shift I)(FW)">Artificial
+                            Intelligence And Machine Learning (Shift I)(FW)</option>
+                        <option value="Mechanical Engineering (Shift I)(FW)">Mechanical Engineering (Shift I)(FW)
+                        </option>
+                        <option value="Electronics and Communication (Advanced Communication Technology)">Electronics
+                            and Communication (Advanced Communication Technology)</option>
+                        <option value="Computer Science and Engineering (Cyber Security) (Shift I)">Computer Science and
+                            Engineering (Cyber Security) (Shift I)</option>
+                        <option value="Computer Science and Business System (Shift I)(FW)">Computer Science and Business
+                            System (Shift I)(FW)</option>
+                        <option value="Computer Science Information Technology (Shift I) (FW)">Computer Science
+                            Information Technology (Shift I) (FW)</option>
+                        <option value="Food Engineering & Technology (Shift I)">Food Engineering & Technology (Shift I)
+                        </option>
+                        <option value="Computer Engineering (Shift I) (FW)">Computer Engineering (Shift I) (FW)</option>
+                        <option value="Textile Engineering (Shift I)">Textile Engineering (Shift I)</option>
+                        <option value="Textile Technology (Shift I)">Textile Technology (Shift I)</option>
+                        <option value="Manufacturing Technology (Shift I)">Manufacturing Technology (Shift I)</option>
+                        <option value="Computer Science & Engineering (Cyber Security) (Shift I) (FW)">Computer Science
+                            & Engineering (Cyber Security) (Shift I) (FW)</option>
+                        <option value="Agricultural Engineering (Shift I)">Agricultural Engineering (Shift I)</option>
+                        <option value="Handloom & Textile Technology (Shift I)">Handloom & Textile Technology (Shift I)
+                        </option>
+                        <option value="Computer Science and Engineering (Self Finance) (Shift I)(FW)">Computer Science
+                            and Engineering (Self Finance) (Shift I)(FW)</option>
+                        <option value="Carpet & Textile Technology (Shift I)(FW)">Carpet & Textile Technology (Shift
+                            I)(FW)</option>
+                        <option value="Plastic Engineering (Shift I)">Plastic Engineering (Shift I)</option>
+                        <option value="Mining Engineering (Shift I)">Mining Engineering (Shift I)</option>
+                        <option value="M Tech (Integrated) Computer Science and Engineering">M Tech (Integrated)
+                            Computer Science and Engineering</option>
+                        <option value="Bio Medical Engineering (Shift I)">Bio Medical Engineering (Shift I)</option>
+                        <option value="M Tech (Integrated) Computer Science and Engineering(TFW)">M Tech (Integrated)
+                            Computer Science and Engineering(TFW)</option>
+                        <option value="Computer Science (Hindi) (Shift I)(FW)">Computer Science (Hindi) (Shift I)(FW)
+                        </option>
+                        <option value="Aeronautical Engineering (Shift I)">Aeronautical Engineering (Shift I)</option>
+                        <option value="Man Made Fibre Technology (Shift I)">Man Made Fibre Technology (Shift I)</option>
+                        <option value="Electronic And Computer Engineering (Shift I)">Electronic And Computer
+                            Engineering (Shift I)</option>
+                        <option value="Textile Chemistry (Shift I)">Textile Chemistry (Shift I)</option>
+                        <option value="Food Technology (Shift I)(FW)">Food Technology (Shift I)(FW)</option>
+                        <option value="Computer Science And Design (Shift I)(FW)">Computer Science And Design (Shift
+                            I)(FW)</option>
+                        <option value="Electronic And Computer Engineering (Shift I) (FW)">Electronic And Computer
+                            Engineering (Shift I) (FW)</option>
+                        <option value="Automobile Engineering (Shift I)">Automobile Engineering (Shift I)</option>
+                    </select><br>
+
+                    <div class="mb-3">
+                        <input type="number" class="form-control" id="crl" placeholder="Mains CRL Rank" name="crl">
+                    </div>
+                    <button class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill"
+                        type="submit">
+                        Search
+                        <svg class="bi ms-2" width="24" height="24">
+                            <use xlink:href="#arrow-right-short" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.n/et/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="formScript.js"></script>
+
+</body>
+
+</html>
