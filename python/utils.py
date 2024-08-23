@@ -31,8 +31,9 @@ def push_data_to_firebase(secret_file, filename, round):
     collection_ref = db.collection('btech')
 
     f= open(filename, 'r')
-    data = csv.reader(f)
-
+    data = list(csv.reader(f))
+    row_count = len(data)
+    n = 1
 
     for i in data:
         doc_ref = collection_ref.add({
@@ -44,4 +45,5 @@ def push_data_to_firebase(secret_file, filename, round):
             'or': int(float(i[8])),
             'cr': int(float(i[9]))
         })
-        print(f"[{i[0]}/1835] Succesfully Added '{i[2]}' to Database!")
+        print(f"[{n}/{row_count}] Succesfully Added '{i[2]}' to Database!")
+        n+=1
