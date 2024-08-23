@@ -23,7 +23,7 @@ def get_select_values(filename, position, outputfile="select_values.html"):
     with open(outputfile, 'w') as f2:
         f2.writelines(final_list)
 
-def push_data_to_firebase(secret_file, filename):
+def push_data_to_firebase(secret_file, filename, round):
     """Pushes data from csv to firebase firestore"""
     cred = credentials.Certificate(secret_file)
     firebase_admin.initialize_app(cred)
@@ -33,12 +33,10 @@ def push_data_to_firebase(secret_file, filename):
     f= open(filename, 'r')
     data = csv.reader(f)
 
-    total = len(data)
-    n = 1
 
     for i in data:
         doc_ref = collection_ref.add({
-            'round': '1',
+            'round': str(round),
             'name': i[2],
             'branch': i[3],
             'quota': i[5],
@@ -46,5 +44,4 @@ def push_data_to_firebase(secret_file, filename):
             'or': int(float(i[8])),
             'cr': int(float(i[9]))
         })
-        print(f"[{n}/{total}] Succesfully Added '{i[2]}' to Database!")
-        n+=1
+        print(f"[{i[0]}/1835] Succesfully Added '{i[2]}' to Database!")
