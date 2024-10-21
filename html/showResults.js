@@ -32,7 +32,7 @@ async function filterData(round,category, quota, course, crl) {
             .where('round', '==', round)
             .where('category', '==', category)
             .where('quota', '==', quota)
-            .where('cr', '>', Number(crl));
+            .where('cr', '>', Number(crl)*0.9);
 
         if (course !== "allprograms") {
             queryRef = queryRef.where('branch', '==', course);
