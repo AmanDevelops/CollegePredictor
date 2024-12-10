@@ -1,0 +1,105 @@
+body{
+    margin: 0px;
+    font-family: "Segoe UI";
+}
+.navbar{
+    display: flex;
+    height: 50px;
+    background-color: rgb(21, 25, 29);
+    align-items: center;
+    color: white;
+    padding-left: 1%;
+}
+.navbar>div{
+    font-size: 20px;
+}
+.navbar>nav{
+    font-size: 15px;
+    padding-left: 1%;
+}
+
+@media screen and (max-width: 550px) {
+    .navbar>nav {
+      display: none;
+    } 
+  }
+@media screen and (max-width: 550px) {
+    .container{
+        padding: 0px !important;
+        margin: 0px !important;
+    }
+    table {
+      font-size: 15px;
+    } 
+  }
+
+a{
+    text-decoration: none;
+    color: rgba(255,255,255,0.80);
+}
+a:hover {
+    color: rgba(255,255,255,0.90);
+}
+
+.container{
+    background-color: rgb(248, 249, 250);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    margin: 4% 8% 8% 8%;
+}
+.container>span{
+    font-size: 40px;
+    font-weight: bold;
+}
+.container>form{
+    width: 60%;
+    margin-left: 20%;
+    display: flex;
+    flex-direction: column;
+}
+.form-select, #crl{
+    font-size: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: solid, white, 5px;
+    transition: ease-in-out .15s;
+}
+.form-select:focus{
+    border: solid, rgba(113, 170, 255, 0.5), 5px;
+    box-shadow: 0px 0px 5px rgba(13, 110, 253, 0.4);
+}
+#crl:focus{
+    border: solid, rgba(45, 129, 255, 0.5), 5px;
+    box-shadow: 0px 0px 5px rgba(13, 110, 253, 0.4);
+}
+button{
+    border-radius: 30px;
+    border: solid rgba(248, 249, 250,1) 5px;
+    background-color: #0d6efd;
+    color: white;
+    width: 150px;
+    height: 55px;
+    font-size: 20px;
+    margin-left: auto;
+    cursor: pointer;
+    border: solid rgb(13, 110, 253) 5px;
+    transition: ease-in-out 0.30s;
+}
+button:hover{
+    background-color: rgb(50, 124, 235);
+    border: solid rgb(50, 124, 235) 5px;
+    scale: 1.05;
+}
+table,tr{
+    border-radius: 3px;
+    border-collapse: collapse;
+    border: solid rgba(0,0,0,0.3) 2px;
+}
+tr{
+    transition: 50ms ease-in-out;
+}
+tr:hover{
+    background-color: rgba(0,0,0,0.1);
+}

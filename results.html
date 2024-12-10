@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/results.css" />
+    <title>UPTAC College Predictor 2024</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div>🔎UPTAC College Predictor 2024</div>
+        <nav>
+            <a href="/" style="margin-right: 5px; color: rgb(255,255,255) !important; ">🏠Home </a>
+            <a href="https://github.com/AmanDevelops/" target="_blank">🔥Github</a>
+        </nav>
+    </div>
+    <div class="container">
+        <span style="font-size: 40px; font-weight: bold;">UPTAC B.Tech. JEE College Predictor</span>
+        <div class="table-div" id="tablediv" style="overflow-x: auto; display: none;">
+            <span id="resultsheader" style="font-size: large; font-weight: bold;"></span>
+
+            <table id="tableData">
+                <thead>
+                    <tr>
+                        <th>College</th>
+                        <th>Program</th>
+                        <th>Category</th>
+                        <th>Opening Rank</th>
+                        <th>Closing Rank</th>
+                        <th>Probability</th>
+                    </tr>
+                </thead>
+                <tbody id="tableDataBody"></tbody>
+            </table>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center; display: none;" id="404">
+            <span style="font-size: 25px; font-weight: bold;">No Colleges Found. Try Changing Inputs</span>
+            <img src="assets/error.png" width="300px">
+        </div>
+
+    </div>
+    </div>
+</body>
+<script src="js/showResults.js"></script>
+
+</html>
