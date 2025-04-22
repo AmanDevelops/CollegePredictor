@@ -1,4 +1,3 @@
-// filepath: d:\CollegePredictor\js\index.js
 const categorySelection = document.getElementById('category');
 const branchSelection = document.getElementById('program');
 const roundSelection = document.getElementById('round');
