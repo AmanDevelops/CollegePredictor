@@ -2,11 +2,8 @@ const firebaseConfig = {
     projectId: "uptac-2024",
 };
 
-
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-
-// document.getElementById('table-div').disiplay = 'none';
 
 function CalculateProbability(rank, or,cr){
     if (rank/or < 0.8){
