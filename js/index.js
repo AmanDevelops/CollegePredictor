@@ -105,7 +105,7 @@ categoryValues.forEach(category => {
   categorySelection.add(new Option(category, category));
 })
 
-categorySelection.addEventListener('change', function() {
+categorySelection.addEventListener('click', function() {
     const selectedValue = categorySelection.value;
     branchSelection.innerHTML = "";
     branchSelection.add(new Option("All Programs", "allprograms"));

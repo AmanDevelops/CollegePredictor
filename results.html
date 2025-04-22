@@ -1,51 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/results.css" />
-    <title>UPTAC College Predictor 2024</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPTAC College Predictor Results | Find Your Engineering College</title>
+    <link rel="stylesheet" href="css/results2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 </head>
-
 <body>
-    <div class="navbar">
-        <div>🔎UPTAC College Predictor 2024</div>
-        <nav>
-            <a href="/" style="margin-right: 5px; color: rgb(255,255,255) !important; ">🏠Home </a>
-            <a href="https://github.com/AmanDevelops/" target="_blank">🔥Github</a>
-        </nav>
-    </div>
-    <div class="container">
-        <span style="font-size: 40px; font-weight: bold;">UPTAC B.Tech. JEE College Predictor</span>
-        <div class="table-div" id="tablediv" style="overflow-x: auto; display: none;">
-            <span id="resultsheader" style="font-size: large; font-weight: bold;"></span>
-
-            <table id="tableData">
-                <thead>
-                    <tr>
-                        <th>College</th>
-                        <th>Program</th>
-                        <th>Category</th>
-                        <th>Opening Rank</th>
-                        <th>Closing Rank</th>
-                        <th>Probability</th>
-                    </tr>
-                </thead>
-                <tbody id="tableDataBody"></tbody>
-            </table>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <span>UPTAC College Predictor <span class="year">2024</span></span>
+            </div>
+            <nav>
+                <a href="/" class="nav-link">Home</a>
+                <a href="https://github.com/AmanDevelops/CollegePredictor" class="nav-link">GitHub</a>
+            </nav>
         </div>
+    </header>
 
-        <div style="display: flex; flex-direction: column; align-items: center; display: none;" id="404">
-            <span style="font-size: 25px; font-weight: bold;">No Colleges Found. Try Changing Inputs</span>
-            <img src="assets/error.png" width="300px">
+    <main>
+        <div class="container">
+            <div class="results-header" style="display: none;" id="results-header">
+                <h1>College Predictions</h1>
+                <div class="search-summary">
+                    <p>Showing results for:</p>
+                    <div class="tags">
+                        <span class="tag" id="roundTag"></span>
+                        <span class="tag" id="categoryTag"></span>
+                        <span class="tag" id="quotaTag"></span>
+                        <span class="tag" id="branchTag"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="no-results" style="display: none;" id="no-results">
+                <div class="no-results-content">
+                    <h2>No Colleges Found</h2>
+                    <p>We couldn't find any colleges matching your search criteria. Try adjusting your filters:</p>
+                    <ul>
+                        <li>Try a different category</li>
+                        <li>Expand your program selection</li>
+                        <li>Check other quotas</li>
+                        <li>Look at different rounds</li>
+                    </ul>
+                    <button class="back-button" onclick="window.location.href='index.html'">
+                        ← Modify Search
+                    </button>
+                </div>
+            </div>
+
+            <div class="results-container" style="display: none;" id="results-container">
+                <div class="table-wrapper">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>College</th>
+                                <th>Program</th>
+                                <th>Category</th>
+                                <th>Opening Rank</th>
+                                <th>Closing Rank</th>
+                                <th>Probability</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableDataBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="results-footer" style="display: none;" id="results-footer">
+                <button class="back-button" onclick="window.location.href='hello.html'">← Back to Search</button>
+                <div class="legend">
+                    <h3>Probability Legend:</h3>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <span class="probability-dot low"></span>
+                            <span>Low Probability</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="probability-dot moderate"></span>
+                            <span>Moderate Probability</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="probability-dot high"></span>
+                            <span>High Probability</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
         </div>
+    </main>
 
-    </div>
-    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="copyright">© 2024 UPTAC College Predictor</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">GitHub</a>
+                </div>
+            </div>
+            <p class="footer-note">Made with ❤️ for engineering aspirants</p>
+        </div>
+    </footer>
+    <script src="js/result.js" type="text/javascript"></script>
 </body>
-<script src="js/showResults.js"></script>
-
 </html>
