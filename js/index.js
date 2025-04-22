@@ -1,5 +1,10 @@
+// filepath: d:\CollegePredictor\js\index.js
 const categorySelection = document.getElementById('category');
 const branchSelection = document.getElementById('program');
+const roundSelection = document.getElementById('round');
+const quotaSelection = document.getElementById('quota');
+const rankInput = document.getElementById('rank');
+const form = document.getElementById('myForm'); // Get form reference
 
 const fwBranches = [
     "Computer Science and Engineering (FW)",
@@ -96,33 +101,78 @@ const nonFwBranches = [
   ];
 
 const categoryValues = [
-    "Select Category", "OPEN", "OPEN(TF)", "OPEN(GIRL)", "SC", "BC(AF)", "BC", "EWS(OPEN)", 
-    "OPEN(AF)", "EWS(GL)", "BC(Girl)", "SC(AF)", "OPEN(PH)", "SC(Girl)", "ST", "ST(Girl)", 
+    "Select Category", "OPEN", "OPEN(TF)", "OPEN(GIRL)", "SC", "BC(AF)", "BC", "EWS(OPEN)",
+    "OPEN(AF)", "EWS(GL)", "BC(Girl)", "SC(AF)", "OPEN(PH)", "SC(Girl)", "ST", "ST(Girl)",
     "SC(PH)", "EWS(AF)", "BC(PH)", "EWS(PH)", "OPEN(FF)", "BC(FF)"
   ];
-  
+
+// Function to populate branches based on category
+function populateBranches(selectedCategory) {
+    branchSelection.innerHTML = ""; // Clear existing options
+    branchSelection.add(new Option("All Programs", "allprograms")); // Add default option
+
+    const branchesToAdd = selectedCategory === "OPEN(TF)" ? fwBranches : nonFwBranches;
+    branchesToAdd.forEach(branch => {
+        branchSelection.add(new Option(branch, branch));
+    });
+}
+
+// Function to restore form state
+function restoreFormState() {
+    const storedData = sessionStorage.getItem('formData');
+    if (storedData) {
+        const data = JSON.parse(storedData);
+
+        // Restore simple selections
+        if (data.round) roundSelection.value = data.round;
+        if (data.quota) quotaSelection.value = data.quota;
+        if (data.crl) rankInput.value = data.crl;
+
+        // Restore category (important to do this before restoring program)
+        if (data.category) {
+            categorySelection.value = data.category;
+            // Populate branches based on the restored category
+            populateBranches(data.category);
+            // Now restore the program selection
+            if (data.course) {
+                // Check if the option exists before setting it
+                const optionExists = Array.from(branchSelection.options).some(opt => opt.value === data.course);
+                if (optionExists) {
+                    branchSelection.value = data.course;
+                } else {
+                    console.warn(`Stored program "${data.course}" not found in dropdown for category "${data.category}".`);
+                    branchSelection.value = "allprograms"; // Default to all programs if specific one not found
+                }
+            }
+        } else {
+             // If no category was stored, populate with default branches
+             populateBranches(categorySelection.value); // Use the default selected category
+        }
+    } else {
+         // If no stored data, populate with default branches based on initial category value
+         populateBranches(categorySelection.value);
+    }
+}
+
+// --- Initial Setup ---
+
+// Populate categories initially
 categoryValues.forEach(category => {
   categorySelection.add(new Option(category, category));
-})
-
-categorySelection.addEventListener('click', function() {
-    const selectedValue = categorySelection.value;
-    branchSelection.innerHTML = "";
-    branchSelection.add(new Option("All Programs", "allprograms"));
-    
-    if (selectedValue == "OPEN(TF)") {
-      fwBranches.forEach(branch => {
-        branchSelection.add(new Option(branch, branch));
-    });
-    } else {
-      nonFwBranches.forEach(branch => {
-        branchSelection.add(new Option(branch, branch));
-    });
-    }
-    
 });
 
-document.getElementById('myForm').addEventListener('submit', function(event) {
+// Restore previous state if available
+restoreFormState();
+
+// --- Event Listeners ---
+
+// Update branches when category changes
+categorySelection.addEventListener('change', function() { // Use 'change' instead of 'click' for better UX
+    populateBranches(this.value);
+});
+
+// Handle form submission
+form.addEventListener('submit', function(event) {
   event.preventDefault();
   const formData = new FormData(this);
   const data = {};
