@@ -49,7 +49,6 @@ async function filterData(round,category, quota, course, crl) {
         tableBody.innerHTML = '';
         
         const tableRows = [];
-        // var table = document.getElementById("table");
         
         console.log(querySnapshot.size);
         if(querySnapshot.size == 0){
@@ -65,7 +64,7 @@ async function filterData(round,category, quota, course, crl) {
                 <td data-label="Program">${data.branch}</td>
                 <td data-label="Category">${data.category}</td>
                 <td data-label="Opening Rank">${data.or}</td>
-                <td data-label="Closig Rank">${data.cr}</td>
+                <td data-label="Closing Rank">${data.cr}</td>
                 <td data-label="Probability">${CalculateProbability(Number(crl), Number(data.or), Number(data.cr))}</td>
                 </tr>
                 `);
@@ -75,12 +74,7 @@ async function filterData(round,category, quota, course, crl) {
             document.getElementById("results-header").style.display = "block";
             document.getElementById("results-container").style.display = "block";
             document.getElementById("results-footer").style.display = "block";
-            // document.getElementById("no-results").style.display = "block";
 
-
-            // document.getElementById('resultsheader').innerText = "Showing "+querySnapshot.size+" results for Round "+ round;
-            // document.getElementById('tablediv').style.display = "block";
-            
         } catch (error) {
             console.error("Error filtering data: ", error);
         }
