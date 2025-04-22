@@ -1,157 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/results.css" />
-    <title>UPTAC College Predictor 2024</title>
-  </head>
-  <body>
-    <div class="navbar">
-      <div>🔎UPTAC College Predictor 2024</div>
-      <nav>
-        <a href="#" style="margin-right: 5px; color: rgb(255,255,255) !important; ">🏠Home  </a>
-        <a href="https://github.com/AmanDevelops/" target="_blank">🔥Github</a>
-      </nav>
-    </div>
-    <div class="container">
-
-        <span style="font-size: 40px; font-weight: bold;">UPTAC B.Tech. JEE College Predictor</span>
-        <form action="results.html" method="POST" id="myForm">
-            <select class="form-select" name="round">
-                <option selected>Select Round</option>
-                <option value="1">Round 1</option>
-                <option value="2">Round 2</option>
-                <option value="3">Round 3</option>
-                <option value="4">Round 4</option>
-            </select>
-            <select class="form-select" name="category">
-                <option selected>Select Category</option>
-                <option value="OPEN">OPEN</option>
-                <option value="OPEN(TF)">OPEN(TF)</option>
-                <option value="OPEN(GIRL)">OPEN(GIRL)</option>
-                <option value="SC">SC</option>
-                <option value="BC(AF)">BC(AF)</option>
-                <option value="BC">BC</option>
-                <option value="EWS(OPEN)">EWS(OPEN)</option>
-                <option value="OPEN(AF)">OPEN(AF)</option>
-                <option value="EWS(GL)">EWS(GL)</option>
-                <option value="BC(Girl)">BC(Girl)</option>
-                <option value="SC(AF)">SC(AF)</option>
-                <option value="OPEN(PH)">OPEN(PH)</option>
-                <option value="SC(Girl)">SC(Girl)</option>
-                <option value="ST">ST</option>
-                <option value="ST(Girl)">ST(Girl)</option>
-                <option value="SC(PH)">SC(PH)</option>
-                <option value="EWS(AF)">EWS(AF)</option>
-                <option value="BC(PH)">BC(PH)</option>
-                <option value="EWS(PH)">EWS(PH)</option>
-                <option value="OPEN(FF)">OPEN(FF)</option>
-                <option value="BC(FF)">BC(FF)</option>
-            </select>
-            <select class="form-select" name="quota">
-                <option selected>Select Quota</option>
-                <option value="Home State">Home State</option>
-                <option value="All India">All India</option>
-            </select>
-            <select class="form-select" name="course">
-                <option value="allprograms" selected>All Programs</option>
-                <option value="Electronics and Communication Engineering">Electronics and Communication Engineering</option>
-<option value="Computer Science and Engineering">Computer Science and Engineering</option>
-<option value="Electronics & Instrumentation Engineering">Electronics & Instrumentation Engineering</option>
-<option value="Electrical Engineering">Electrical Engineering</option>
-<option value="Information Technology">Information Technology</option>
-<option value="Renewable Engineering">Renewable Engineering</option>
-<option value="Mechanical Engineering">Mechanical Engineering</option>
-<option value="Computer Science and Engineering (FW)">Computer Science and Engineering (FW)</option>
-<option value="Computer Science And Engineering(Artificial Intelligence & Machine Learning)">Computer Science And Engineering(Artificial Intelligence & Machine Learning)</option>
-<option value="Computer Science and Engineering (Data Science)">Computer Science and Engineering (Data Science)</option>
-<option value="Computer Science And Engineering(Artificial Intelligence & Machine Learning) (FW)">Computer Science And Engineering(Artificial Intelligence & Machine Learning) (FW)</option>
-<option value="Civil Engineering">Civil Engineering</option>
-<option value="Textile Chemistry">Textile Chemistry</option>
-<option value="Textile Engineering">Textile Engineering</option>
-<option value="Textile Technology">Textile Technology</option>
-<option value="Man Made Fibre Technology">Man Made Fibre Technology</option>
-<option value="Electronics and Communication Engineering (FW)">Electronics and Communication Engineering (FW)</option>
-<option value="Computer Science And Engineering(Internet Of Things)">Computer Science And Engineering(Internet Of Things)</option>
-<option value="Information Technology (FW)">Information Technology (FW)</option>
-<option value="Computer Science & Engineering (Cyber Security)">Computer Science & Engineering (Cyber Security)</option>
-<option value="Computer Science And Engineering(Data Science) (FW)">Computer Science And Engineering(Data Science) (FW)</option>
-<option value="Computer Science & Engineering (Cyber Security) (FW)">Computer Science & Engineering (Cyber Security) (FW)</option>
-<option value="Computer Science and Engineering (Artificial Intelligence)">Computer Science and Engineering (Artificial Intelligence)</option>
-<option value="Electrical & Electronics Engineering">Electrical & Electronics Engineering</option>
-<option value="Computer Science And Design">Computer Science And Design</option>
-<option value="Artificial Inelligence (AI) And Data Science">Artificial Inelligence (AI) And Data Science</option>
-<option value="Computer Science And Engineering(Internet Of Things) (FW)">Computer Science And Engineering(Internet Of Things) (FW)</option>
-<option value="Artificial Inelligence (AI) And Data Science (FW)">Artificial Inelligence (AI) And Data Science (FW)</option>
-<option value="Bio Medical Engineering">Bio Medical Engineering</option>
-<option value="Artificial Intelligence And Machine Learning">Artificial Intelligence And Machine Learning</option>
-<option value="Mechanical Engineering (FW)">Mechanical Engineering (FW)</option>
-<option value="Computer Science and Engineering (Artificial Intelligence) (FW)">Computer Science and Engineering (Artificial Intelligence) (FW)</option>
-<option value="Computer Science Information Technology (FW)">Computer Science Information Technology (FW)</option>
-<option value="Computer Science Information Technology">Computer Science Information Technology</option>
-<option value="Electrical Engineering (FW)">Electrical Engineering (FW)</option>
-<option value="Electronics Engineering">Electronics Engineering</option>
-<option value="Mining Engineering">Mining Engineering</option>
-<option value="Electronics Engineering (FW)">Electronics Engineering (FW)</option>
-<option value="Civil Engineering (FW)">Civil Engineering (FW)</option>
-<option value="Food Technology">Food Technology</option>
-<option value="Chemical Engineering">Chemical Engineering</option>
-<option value="Computer Science">Computer Science</option>
-<option value="Computer Science (FW)">Computer Science (FW)</option>
-<option value="Electronic And Computer Engineering">Electronic And Computer Engineering</option>
-<option value="Computer Science And Design (FW)">Computer Science And Design (FW)</option>
-<option value="Computer Science (Hindi) (FW)">Computer Science (Hindi) (FW)</option>
-<option value="Computer Science (Hindi)">Computer Science (Hindi)</option>
-<option value="M Tech (Integrated) Computer Science and Engineering">M Tech (Integrated) Computer Science and Engineering</option>
-<option value="Electronics Engineering (VLSI Design and Technology)">Electronics Engineering (VLSI Design and Technology)</option>
-<option value="Computer Science and Engineering (Collaboration & Twining Program)">Computer Science and Engineering (Collaboration & Twining Program)</option>
-<option value="Computer Science And Business System (FW)">Computer Science And Business System (FW)</option>
-<option value="Computer Science And Engineering(Artificial Intelligence & Machine Learning)(Collaboration & Twining Program)">Computer Science And Engineering(Artificial Intelligence & Machine Learning)(Collaboration & Twining Program)</option>
-<option value="Information Technology (Collaboration & Twining Program)">Information Technology (Collaboration & Twining Program)</option>
-<option value="Computer Science and Engineering (Artificial Intelligence)(Collaboration & Twining Program)">Computer Science and Engineering (Artificial Intelligence)(Collaboration & Twining Program)</option>
-<option value="Computer Science And Business System">Computer Science And Business System</option>
-<option value="Computer Engineering And Information Technology">Computer Engineering And Information Technology</option>
-<option value="Data Sciences">Data Sciences</option>
-<option value="Cyber Security">Cyber Security</option>
-<option value="Electronics and Telecommunication Engineering">Electronics and Telecommunication Engineering</option>
-<option value="Computer Science & Engineering (Artificial Intelligence)">Computer Science & Engineering (Artificial Intelligence)</option>
-<option value="Computer Science & Engineering (Artificial Intelligence & data Science)">Computer Science & Engineering (Artificial Intelligence & data Science)</option>
-<option value="Automotion & Robotics">Automotion & Robotics</option>
-<option value="Electrical & Computer Engg.">Electrical & Computer Engg.</option>
-<option value="Electrical & Electronics Engineering (FW)">Electrical & Electronics Engineering (FW)</option>
-<option value="Computer Engineering">Computer Engineering</option>
-<option value="Artificial Intelligence And Machine Learning (FW)">Artificial Intelligence And Machine Learning (FW)</option>
-<option value="Bioinformatics">Bioinformatics</option>
-<option value="Automobile Engineering">Automobile Engineering</option>
-<option value="Electronics and Communication (Advanced Communication Technology)">Electronics and Communication (Advanced Communication Technology)</option>
-<option value="Computer Science and Engineering(Self Finance)">Computer Science and Engineering(Self Finance)</option>
-<option value="Computer Science and Engineering(Self Finance) (FW)">Computer Science and Engineering(Self Finance) (FW)</option>
-<option value="Chemical Engineering (FW)">Chemical Engineering (FW)</option>
-<option value="Instrumentation and Control Engineering">Instrumentation and Control Engineering</option>
-<option value="Industrial Production Engineering (FW)">Industrial Production Engineering (FW)</option>
-<option value="Instrumentation and Control Engineering (FW)">Instrumentation and Control Engineering (FW)</option>
-<option value="Industrial Production Engineering">Industrial Production Engineering</option>
-<option value="Handloom & Textile Technology">Handloom & Textile Technology</option>
-<option value="Carpet & Textile Technology">Carpet & Textile Technology</option>
-<option value="Electronics and Communication (Advanced Communication Technology) (FW)">Electronics and Communication (Advanced Communication Technology) (FW)</option>
-<option value="Electronics Engineering (VLSI Design and Technology) (FW)">Electronics Engineering (VLSI Design and Technology) (FW)</option>
-<option value="Aeronautical Engineering">Aeronautical Engineering</option>
-<option value="Computer Science & Engineering (AI & Finance Managemnet)">Computer Science & Engineering (AI & Finance Managemnet)</option>
-<option value="Electronic And Computer Engineering (FW)">Electronic And Computer Engineering (FW)</option>
-<option value="Manufacturing Technology">Manufacturing Technology</option>
-<option value="Plastic Engineering">Plastic Engineering</option>
-<option value="Plastic Engineering (FW)">Plastic Engineering (FW)</option>
-<option value="Food Engineering & technology">Food Engineering & technology</option>
-<option value="Electrical & Computer Engg. (FW)">Electrical & Computer Engg. (FW)</option>
-            </select>
-            <input type="str" id="crl" placeholder="Mains CRL Rank" name="crl">
-            <div>
-            <button type="submit">Search🔎</button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPTAC College Predictor 2024 | Find Your Engineering College</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <span>UPTAC College Predictor <span class="year">2024</span></span>
+            </div>
+            <nav>
+                <a href="#" class="nav-link">Home</a>
+                <a href="https://github.com/AmanDevelops/CollegePredictor" class="nav-link">GitHub</a>
+            </nav>
         </div>
-        </form>
+    </header>
 
-    </div>
-    <script src="js/formScript.js"></script>
-  </body>
+    <main>
+        <div class="container">
+            <section class="hero">
+                <h1>Find the best AKTU college for your rank</h1>
+                <p>Use this Tool to find the best AKTU college based on your category and rank</p>
+            </section>
+
+            <section class="predictor-form">
+                <div class="form-header">
+                    <h2>UPTAC B.Tech. JEE College Predictor</h2>
+                </div>
+                
+                <form  action="results.html" method="POST" id="myForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="round">Select Round</label>
+                            <select id="round" name="round" required>
+                                <option value="1">Round 1</option>
+                                <option value="2">Round 2</option>
+                                <option value="3">Round 3</option>
+                                <option value="4">Round 4</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category">Select Category</label>
+                            <select id="category" name="category" required>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quota">Select Quota</label>
+                            <select id="quota" name="quota" required>
+                                <option value="Home State">Home State</option>
+                                <option value="All India">All India</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="program">Programs</label>
+                            <select id="program" name="course" required>
+                                <option value="SelectProgram">Select Program</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rank">Mains CRL Rank</label>
+                        <input type="text" id="rank" placeholder="Enter your JEE Mains rank" name="crl" required>
+                    </div>
+
+                    <button type="submit" class="search-button">Search Colleges</button>
+                </form>
+            </section>
+
+            <section class="instructions">
+                <h2>How to Use the College Predictor</h2>
+                <p>Our college predictor tool helps you find most suitable engineering colleges where you have a good chance of admission based on your JEE Main rank.</p>
+                <ol>
+                    <li><span>Select the counseling round</span> you're interested in</li>
+                    <li><span>Choose your category</span> (General, OBC-NCL, SC, ST, EWS)</li>
+                    <li><span>Select your quota</span> (All India, Home State, Other State)</li>
+                    <li><span>Filter by programs</span> you're interested in or view all programs</li>
+                    <li><span>Enter your JEE Main CRL rank</span></li>
+                    <li>Click "Search Colleges" to view your results</li>
+                </ol>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="copyright">© 2025 UPTAC College Predictor</p>
+                <div class="footer-links">
+                    <a href="https://github.com/AmanDevelops/CollegePredictor">GitHub</a>
+                </div>
+            </div>
+            <p class="footer-note">Made with ❤️ for engineering aspirants</p>
+        </div>
+    </footer>
+    <script src="js/index.js"  type="text/javascript"></script>
+</body>
 </html>
