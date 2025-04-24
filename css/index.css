@@ -292,3 +292,48 @@ footer {
 .instructions {
     animation: fadeIn 0.5s ease-out;
 }
+
+.cookie-notice {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-indigo-600);
+    color: var(--color-indigo-50);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    box-sizing: border-box; 
+    z-index: 1000;
+    font-size: 14px;
+    display: none;
+  }
+  
+  .cookie-notice p {
+    margin: 0;
+    margin-right: 15px;
+  }
+  
+  .cookie-notice a {
+    color: var(--color-indigo-50);
+    text-decoration: none;
+  }
+  
+  .cookie-notice a:hover {
+    text-decoration: underline;
+  }
+  
+  .cookie-notice button {
+    padding: 8px 15px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  
+  .cookie-notice button:hover {
+    background-color: var(--color-gray-200);
+  }

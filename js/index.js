@@ -181,3 +181,20 @@ form.addEventListener('submit', function(event) {
   sessionStorage.setItem('formData', JSON.stringify(data));
   window.location.href = 'results.html';
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cookieNotice = document.getElementById('cookieNotice');
+    const acceptButton = document.getElementById('acceptCookieNotice');
+  
+    // Check if user has already accepted cookies
+    if (!localStorage.getItem('cookiesAccepted')) {
+      cookieNotice.style.display = 'flex'; // Show the notice
+    }
+  
+    // When the accept button is clicked
+    acceptButton.addEventListener('click', () => {
+      localStorage.setItem('cookiesAccepted', 'true'); // Store consent
+      cookieNotice.style.display = 'none'; // Hide the notice
+    });
+  });
