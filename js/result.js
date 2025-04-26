@@ -1,6 +1,6 @@
 // Firebase Configuration
 const firebaseConfig = {
-    projectId: "uptac-2024", // Replace with your actual Firebase project ID
+    projectId: "uptac-2024",
 };
 
 // Initialize Firebase
