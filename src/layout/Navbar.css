@@ -1,0 +1,55 @@
+header {
+  background: linear-gradient(
+    to right,
+    var(--color-indigo-900),
+    var(--color-indigo-700)
+  );
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.year {
+  color: var(--color-orange-300);
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+  .nav-link {
+    display: none;
+  }
+}
+
+@media (max-width: 524px) {
+  .follow-btn {
+    display: none;
+  }
+}
