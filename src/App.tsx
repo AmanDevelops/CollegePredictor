@@ -29,21 +29,21 @@ function App() {
         fieldFilter: {
           field: { fieldPath: "round" },
           op: "EQUAL",
-          value: { stringValue: searchValue.round.toString() },
+          value: { stringValue: searchValueInput.round.toString() },
         },
       },
       {
         fieldFilter: {
           field: { fieldPath: "category" },
           op: "EQUAL",
-          value: { stringValue: searchValue.category },
+          value: { stringValue: searchValueInput.category },
         },
       },
       {
         fieldFilter: {
           field: { fieldPath: "quota" },
           op: "EQUAL",
-          value: { stringValue: searchValue.quota },
+          value: { stringValue: searchValueInput.quota },
         },
       },
       {
@@ -51,23 +51,21 @@ function App() {
           field: { fieldPath: "cr" },
           op: "GREATER_THAN",
           value: {
-            integerValue: Math.floor(Number(searchValue.rank) * 0.8),
+            integerValue: Math.floor(Number(searchValueInput.rank) * 0.8),
           },
         },
       },
     ];
 
-    if (searchValue.branch === "All Programs") {
+    if (searchValueInput.branch !== "All Programs") {
       filters.push({
         fieldFilter: {
           field: { fieldPath: "branch" },
           op: "EQUAL",
-          value: { stringValue: searchValue?.branch },
+          value: { stringValue: searchValueInput.branch },
         },
       });
     }
-
-    console.log(filters);
 
     const response = await fetch(
       "https://firestore.googleapis.com/v1/projects/uptac-2024/databases/(default)/documents:runQuery",
@@ -94,8 +92,6 @@ function App() {
     );
 
     const data = await response.json();
-    console.log(data);
-
     if (data) {
       setisSearched(true);
     }
