@@ -221,6 +221,8 @@ function SearchForm({ handleSearch, searchValue }: SearchFormProps) {
               required
             >
               <option value="SelectProgram">Select Program</option>
+              <option value="All Programs">All Programs</option>
+
               {(formData.category === "OPEN(TF)"
                 ? fwBranches
                 : nonFwBranches
