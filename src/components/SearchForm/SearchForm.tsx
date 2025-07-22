@@ -176,11 +176,7 @@ function SearchForm({ handleSearch, searchValue }: SearchFormProps) {
               required
             >
               {categoryValues.map((category) => (
-                <option
-                  key={category}
-                  value={category}
-                  selected={category === formData.category}
-                >
+                <option key={category} value={category}>
                   {category}
                 </option>
               ))}
@@ -243,7 +239,7 @@ function SearchForm({ handleSearch, searchValue }: SearchFormProps) {
               setformData((prev) => ({
                 ...prev,
                 rank:
-                  Number(e.target.value) === 0 ? "" : Number(e.target.value),
+                  Number(e.target.value) <= 0 ? "" : Number(e.target.value),
               }))
             }
             required

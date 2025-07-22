@@ -12,6 +12,20 @@ const SearchResults = React.lazy(
   () => import("./components/SearchResults/SearchResults")
 );
 
+export interface SearchResult {
+  document?: {
+    fields: {
+      branch?: { stringValue: string };
+      category?: { stringValue: string };
+      cr?: { integerValue: string };
+      name?: { stringValue: string };
+      or?: { integerValue: string };
+      quota?: { stringValue: string };
+      round?: { stringValue: string };
+    };
+  };
+}
+
 function App() {
   const [isSearched, setisSearched] = useState<boolean>(false);
   const [searchValue, setsearchValue] = useState<SearchFormType>({
@@ -22,7 +36,7 @@ function App() {
     rank: "",
   });
 
-  const [searchResults, setsearchResults] = useState<any>([]);
+  const [searchResults, setsearchResults] = useState<SearchResult[]>([]);
 
   const handleSearch = async (searchValueInput: SearchFormType) => {
     if (!searchValueInput) {
@@ -75,7 +89,7 @@ function App() {
     }
 
     const response = await fetch(
-      "https://firestore.googleapis.com/v1/projects/uptac-2024/databases/(default)/documents:runQuery",
+      import.meta.env.VITE_FIRESTORE_API_URL,
       {
         method: "POST",
         headers: {
@@ -103,9 +117,6 @@ function App() {
 
     if (data) {
       setisSearched(true);
-    }
-    if (searchResults[0].document.fields) {
-      console.log("Something Exists");
     }
   };
 
