@@ -1,12 +1,16 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Hero from "./components/Hero/Hero";
 import Instructions from "./components/Instructions/Instructions";
-import NoResult from "./components/NoResult/NoResult";
 import SearchForm from "./components/SearchForm/SearchForm";
-import SearchResults from "./components/SearchResults/SearchResults";
+import Footer from "./layout/Footer/Footer";
 import Navbar from "./layout/Navbar";
 import type { SearchFormType } from "./types/SearchFormType";
+
+const NoResult = React.lazy(() => import("./components/NoResult/NoResult"));
+const SearchResults = React.lazy(
+  () => import("./components/SearchResults/SearchResults")
+);
 
 function App() {
   const [isSearched, setisSearched] = useState<boolean>(false);
@@ -135,6 +139,7 @@ function App() {
           )}
         </div>
       </main>
+      <Footer />
     </>
   );
 }
