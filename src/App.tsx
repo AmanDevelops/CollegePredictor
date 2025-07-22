@@ -2,8 +2,8 @@ import { useState } from "react";
 import "./App.css";
 import Hero from "./components/Hero/Hero";
 import Instructions from "./components/Instructions/Instructions";
-import NoResult from "./components/NoResult/NoResult";
 import SearchForm from "./components/SearchForm/SearchForm";
+import SearchResults from "./components/SearchResults/SearchResults";
 import Navbar from "./layout/Navbar";
 import type { SearchFormType } from "./types/SearchFormType";
 
@@ -11,11 +11,13 @@ function App() {
   const [isSearched, setisSearched] = useState<boolean>(false);
   const [searchValue, setsearchValue] = useState<SearchFormType>({
     round: 1,
-    category: "Select Category",
+    category: "OPEN",
     quota: "Home State",
-    branch: "allprograms",
+    branch: "All Programs",
     rank: "",
   });
+
+  const [searchResults, setsearchResults] = useState<any>([]);
 
   const handleSearch = async (searchValueInput: SearchFormType) => {
     if (!searchValueInput) {
@@ -92,6 +94,8 @@ function App() {
     );
 
     const data = await response.json();
+    setsearchResults(data);
+
     if (data) {
       setisSearched(true);
     }
@@ -116,7 +120,12 @@ function App() {
               <Instructions />
             </>
           ) : (
-            <NoResult goBack={goBack} />
+            // <NoResult goBack={goBack} />
+            <SearchResults
+              searchData={searchResults}
+              searchQuery={searchValue}
+              goBack={goBack}
+            />
           )}
         </div>
       </main>

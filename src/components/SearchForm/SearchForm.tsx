@@ -3,7 +3,6 @@ import type { SearchFormType } from "../../types/SearchFormType";
 import "./SearchForm.css";
 
 const categoryValues: string[] = [
-  "Select Category",
   "OPEN",
   "OPEN(TF)",
   "OPEN(GIRL)",
@@ -220,7 +219,6 @@ function SearchForm({ handleSearch, searchValue }: SearchFormProps) {
               value={formData.branch}
               required
             >
-              <option value="SelectProgram">Select Program</option>
               <option value="All Programs">All Programs</option>
 
               {(formData.category === "OPEN(TF)"
