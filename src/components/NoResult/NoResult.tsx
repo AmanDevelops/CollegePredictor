@@ -6,8 +6,8 @@ function NoResult({ goBack }: { goBack: () => void }) {
       <div className="no-results-content">
         <h2>No Colleges Found</h2>
         <p>
-          We couldn't find any colleges matching your search criteria. Try
-          adjusting your filters:
+          No results right now, but your college journey is just getting
+          started. A few filter changes might help!
         </p>
         <ul>
           <li>Try a different category</li>
@@ -15,7 +15,7 @@ function NoResult({ goBack }: { goBack: () => void }) {
           <li>Check other quotas</li>
           <li>Look at different rounds</li>
         </ul>
-        <button className="back-button" onClick={goBack}>
+        <button className="back-button"  onClick={goBack}>
           ← Modify Search
         </button>
       </div>

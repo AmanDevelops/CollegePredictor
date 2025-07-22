@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Hero from "./components/Hero/Hero";
 import Instructions from "./components/Instructions/Instructions";
+import NoResult from "./components/NoResult/NoResult";
 import SearchForm from "./components/SearchForm/SearchForm";
 import SearchResults from "./components/SearchResults/SearchResults";
 import Navbar from "./layout/Navbar";
@@ -99,6 +100,9 @@ function App() {
     if (data) {
       setisSearched(true);
     }
+    if (searchResults[0].document.fields) {
+      console.log("Something Exists");
+    }
   };
 
   const goBack = () => {
@@ -119,8 +123,9 @@ function App() {
               />
               <Instructions />
             </>
+          ) : !searchResults[0]?.document?.fields ? (
+            <NoResult goBack={goBack} />
           ) : (
-            // <NoResult goBack={goBack} />
             <SearchResults
               searchData={searchResults}
               searchQuery={searchValue}

@@ -5,11 +5,15 @@
   padding: 3rem 2rem;
   text-align: center;
   animation: fadeIn 0.5s ease-out;
+
 }
 
 .no-results-content {
   max-width: 500px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .no-results h2 {
