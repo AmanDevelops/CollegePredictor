@@ -124,6 +124,7 @@ function App() {
             <SearchResults
               searchData={searchResults}
               searchQuery={searchValue}
+              setSearchData={setsearchResults}
               goBack={goBack}
             />
           )}

@@ -22,7 +22,9 @@
   display: flex;
   gap: 0.5rem;
   align-items: center;
-  /* font-size: 1rem; */
+}
+.back-button:disabled {
+  opacity: 0.75;
 }
 
 .back-button:hover {
@@ -63,6 +65,52 @@
   border-radius: 1rem;
   font-size: 0.875rem;
   font-weight: 500;
+}
+
+.legend {
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-left: 1rem;
+}
+
+.legend h3 {
+  color: var(--color-gray-700);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.legend-items {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-gray-600);
+}
+
+.probability-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+}
+
+.probability-dot.low {
+  background-color: var(--color-red-500);
+}
+
+.probability-dot.moderate {
+  background-color: var(--color-yellow-500);
+}
+
+.probability-dot.high {
+  background-color: var(--color-green-500);
 }
 
 .results-container {
@@ -137,9 +185,77 @@
   color: var(--color-green-1000);
 }
 
-
 .pagination {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .search-summary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .search-info,
+  .legend {
+    margin-left: 0;
+  }
+
+  .results-table {
+    display: block;
+  }
+
+  .results-table thead {
+    display: none;
+  }
+
+  .results-table tbody {
+    display: block;
+  }
+
+  .results-table tr {
+    display: block;
+    border: 1px solid var(--color-gray-200);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+
+  .results-table td {
     display: flex;
-    justify-content: center;
-    gap: 3rem;
+    padding: 0.5rem 0;
+    border: none;
+  }
+
+  .results-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    width: 120px;
+    min-width: 120px;
+    color: var(--color-gray-700);
+  }
+
+  .results-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .back-button {
+    text-align: center;
+  }
+
+  .legend {
+    width: 100%;
+  }
+
+  .no-results {
+    padding: 2rem 1rem;
+  }
+
+  .no-results ul {
+    max-width: 100%;
+  }
 }
