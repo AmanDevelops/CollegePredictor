@@ -1,0 +1,26 @@
+.instructions {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.instructions h2 {
+  color: var(--color-indigo-700);
+  margin-bottom: 1rem;
+}
+
+.instructions ol {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.instructions li {
+  margin-bottom: 0.5rem;
+}
+
+.instructions li span {
+  font-weight: 500;
+}

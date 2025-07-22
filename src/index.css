@@ -39,3 +39,7 @@ body {
   color: var(--color-gray-900);
   background-color: var(--color-gray-50);
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}
