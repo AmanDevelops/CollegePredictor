@@ -39,6 +39,11 @@ nav {
 .nav-link:hover {
   color: white;
 }
+.nav-link:focus-visible {
+  outline: 2px dashed var(--color-orange-300);
+  outline-offset: 2px;
+  color: white;
+}
 
 /* Responsive Styles */
 

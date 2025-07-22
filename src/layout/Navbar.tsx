@@ -1,9 +1,20 @@
+import { useEffect } from "react";
 import "./Navbar.css";
 
 function Navbar() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://buttons.github.io/buttons.js";
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
   return (
     <header>
-      <script async defer src="https://buttons.github.io/buttons.js"></script>
       <div className="container header-content">
         <div className="logo">
           <span>

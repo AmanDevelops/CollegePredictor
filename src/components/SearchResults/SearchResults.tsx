@@ -1,12 +1,13 @@
 import { CircleChevronDown, MoveLeft } from "lucide-react";
 import { useState } from "react";
+import type { SearchResult } from "../../App";
 import type { SearchFormType } from "../../types/SearchFormType";
 import "./SearchResults.css";
 
 type SearchResultsProps = {
-  searchData: any;
+  searchData: SearchResult[];
   searchQuery: SearchFormType;
-  setSearchData: React.Dispatch<any>;
+  setSearchData: React.Dispatch<React.SetStateAction<SearchResult[]>>;
   goBack: () => void;
 };
 
@@ -62,9 +63,8 @@ function SearchResults({
   }
 
   const loadNext = async () => {
-    const response = await fetch(
-      "https://firestore.googleapis.com/v1/projects/uptac-2024/databases/(default)/documents:runQuery",
-      {
+    try {
+      const response = await fetch(import.meta.env.VITE_FIRESTORE_API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -83,17 +83,22 @@ function SearchResults({
             offset: offset + 10,
           },
         }),
-      }
-    );
-    const data = await response.json();
-    if (data.length < 10) {
-      setisMore(false);
-    }
-    setSearchData((prev: any) => [...prev, ...data]);
-    setOffset(offset + searchData.length);
-  };
+      });
 
-  console.log(searchData);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      if (data.length < 10) {
+        setisMore(false);
+      }
+      setSearchData((prev: any) => [...prev, ...data]);
+      setOffset(offset + searchData.length);
+    } catch (error) {
+      console.error("Failed to load more results:", error);
+    }
+  };
   return (
     <>
       <div className="results-header">
@@ -147,9 +152,9 @@ function SearchResults({
             <tbody>
               {searchData
                 .filter((result: any) => result.document?.fields)
-                .map((result: any) => {
+                .map((result: any, index: number) => {
                   const closingRank = Number(
-                    result.document.fields.cr.integerValue
+                    result.document.fields.cr?.integerValue
                   );
                   const probabilityFactor =
                     closingRank / Number(searchQuery.rank);
@@ -174,23 +179,22 @@ function SearchResults({
                     probabilityText = "Very High Probability";
                   }
 
-                  console.log(result);
                   return (
-                    <tr>
+                    <tr key={index}>
                       <td data-label="College">
-                        {result.document.fields.name.stringValue || "N/A"}
+                        {result.document.fields.name?.stringValue || "N/A"}
                       </td>
                       <td data-label="Program">
-                        {result.document.fields.branch.stringValue || "N/A"}
+                        {result.document.fields.branch?.stringValue || "N/A"}
                       </td>
                       <td data-label="Category">
-                        {result.document.fields.category.stringValue || "N/A"}
+                        {result.document.fields.category?.stringValue || "N/A"}
                       </td>
                       <td data-label="Opening Rank">
-                        {result.document.fields.or.integerValue || "N/A"}
+                        {result.document.fields.or?.integerValue || "N/A"}
                       </td>
                       <td data-label="Closing Rank">
-                        {result.document.fields.cr.integerValue || "N/A"}
+                        {result.document.fields.cr?.integerValue || "N/A"}
                       </td>
                       <td>
                         <span className={`probability ${probabilityClass}`}>
