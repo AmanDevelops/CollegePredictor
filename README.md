@@ -1,5 +1,7 @@
 # CollegePredictor
 
+![image](https://github.com/user-attachments/assets/7e7e70c6-c719-4719-9a43-891b6c588b7a)
+
 CollegePredictor is an HTML-based tool designed to predict college admissions based on rank. It provides users with an estimate of their chances of admission to various colleges by inputting their rank and other relevant details.
 
 ## Features
